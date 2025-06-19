@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Muna Hassan | Portfolio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/css?family=Parisienne|Ovo&display=swap" rel="stylesheet" />
+        <style>
+            :root {
+                --pear: #f0f2cf;
+                --blue: #00515b;
+                --green: #2d8b6b;
+                --grey: #474746;
+                --skyblue: #71c3a8;
+                --yellow: #f8c069;
+                --pink: #facdb2;
+                --pink2: #a34547;
+            }
+            body {
+                font-family: "Ovo", serif;
+                background-color: var(--pear);
+                color: var(--blue);
+                margin: 0;
+                padding: 0;
+            }
+            .top-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: var(--green);
+                padding: 0.7rem 2rem;
+                position: relative;
+            }
+
+            .site-title h1 {
+                font-family: "Parisienne", cursive;
+                color: var(--pear);
+                font-size: 2rem;
+                margin: 0;
+                line-height: 1;
+            }
+
+            .main-nav {
+                display: flex;
+                gap: 2rem;
+            }
+
+            .main-nav a {
+                color: var(--grey);
+                text-decoration: none;
+                font-weight: bold;
+                transition: color 0.2s;
+                font-size: 1.1rem;
+            }
+
+            .main-nav a:hover {
+                color: var(--pear);
+            }
+
+            .nav-toggle {
+                display: none;
+                background: none;
+                border: none;
+                font-size: 2rem;
+                color: var(--pear);
+                cursor: pointer;
+            }
+
+            @media (max-width: 700px) {
+                .top-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    padding: 1rem;
+                }
+                .main-nav {
+                    display: none;
+                    flex-direction: column;
+                    width: 100%;
+                    gap: 0.6rem;
+                    margin-top: 1rem;
+                }
+                .main-nav.open {
+                    display: flex;
+                }
+                .nav-toggle {
+                    display: block;
+                    position: absolute;
+                    right: 2rem;
+                    top: 1.3rem;
+                }
+            }
+            .container {
+                max-width: 900px;
+                margin: 2rem auto;
+                padding: 0 1rem;
+            }
+            section {
+                margin-bottom: 3rem;
+            }
+            h2 {
+                color: var(--pink2);
+                margin-bottom: 0.5rem;
+                font-family: "Parisienne", cursive;
+            }
+            .projects {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+                gap: 1.5rem;
+            }
+            .project-card {
+                background: #eceec4;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.09);
+                padding: 1.3rem;
+            }
+            .project-card p {
+                color: var(--blue);
+            }
+            .project-card h3 {
+                margin-top: 0;
+                color: var(--pink2);
+            }
+
+            a {
+                color: var(--skyblue);
+                font-weight: bold;
+                text-decoration: underline;
+                transition: color 0.2s;
+            }
+
+            a:hover {
+                color: var(--blue);
+            }
+            .contact-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .contact-list li {
+                margin-bottom: 0.4rem;
+            }
+            @media (max-width: 600px) {
+                .container {
+                    padding: 0 0.5rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="top-header">
+            <div class="site-title">
+                <h1>MH</h1>
+            </div>
+            <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
+            <nav class="main-nav">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#resume">Resume</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+        <div class="container">
+            <section id="about">
+                <h2>About Me</h2>
+                <p>
+                    Hi, I’m Muna! I study computer science at ELTE and love building cool things, both on the computer and in real life. I enjoy solving puzzles with code and working on fun projects such as my farm game. In my free time, I
+                    like making diy miniature houses and painting things I like.
+                    <br />
+                    <br />
+                    <strong>Skills:</strong> JavaScript, Python, Java, C#, C, HTML, CSS
+                </p>
+            </section>
+            <section id="projects">
+                <h2>Projects</h2>
+                <div class="projects">
+                    <div class="project-card">
+                        <h3>Project One</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti sint rem quae ipsam perspiciatis similique eveniet corporis molestias dolorum explicabo facere iure at consectetur molestiae, illum saepe.
+                            Dolores, molestias voluptatibus.
+                        </p>
+                        <p><strong>Skills:</strong> abcd</p>
+                        <p>
+                            <a href="" target="_blank">Code</a>
+                            | <a href="" target="_blank">Live Demo</a>
+                        </p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Project Two</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quaerat dignissimos, voluptatum praesentium animi ad repellendus nemo inventore omnis libero? Officiis soluta labore iusto harum repellendus
+                            architecto, cupiditate repudiandae nostrum.
+                        </p>
+                        <p><strong>Skills:</strong> abcd</p>
+                        <p>
+                            <a href="" target="_blank">Code</a>
+                            | <a href="#">Live Demo</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section id="resume">
+                <h2>Resume</h2>
+                <p>
+                    <a href="Muna_CV.pdf" target="_blank">Download my resume (PDF)</a>
+                </p>
+            </section>
+            <section id="contact">
+                <h2>Contact</h2>
+                <ul class="contact-list">
+                    <li>Email: munahssnn@gmail.com</li>
+                    <li>GitHub: <a href="https://github.com/munahssn" target="_blank">munahssn</a></li>
+                    <li>LinkedIn: <a href="https://linkedin.com/in/muna-hassan-93ab26355/" target="_blank">Muna Hassan</a></li>
+                </ul>
+            </section>
+        </div>
+        <script>
+            const navToggle = document.querySelector(".nav-toggle");
+            const mainNav = document.querySelector(".main-nav");
+            navToggle.addEventListener("click", () => {
+                mainNav.classList.toggle("open");
+                navToggle.setAttribute("aria-expanded", mainNav.classList.contains("open"));
+            });
+        </script>
+    </body>
+</html>
