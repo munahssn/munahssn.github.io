@@ -1,294 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Muna Hassan | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Muna Hassan | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <style>
+      body {
+        font-family: "Space Mono", monospace;
+        color: white;
+        background: rgb(10, 10, 10);
+        margin: 0;
+        padding: 0;
+      }
 
-    body {
-      font-family: "Space Mono", monospace;
-      color: white;
-      background: rgb(10, 10, 10);
-      margin: 0;
-      padding: 0;
-    }
-
-    .top-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgb(18, 17, 17);
-      padding: 0.7rem 2rem;
-      position: relative;
-    }
-
-    .site-title h1 {
-      font-family: "Space Mono", monospace;
-      color: white;
-      font-size: 2rem;
-      margin: 0;
-      line-height: 1;
-    }
-
-    .main-nav {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .main-nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.2s;
-      font-size: 1.1rem;
-    }
-
-    .main-nav a:hover {
-      color: black;
-      background-color: rgb(250, 171, 171);
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-    }
-
-    @media (max-width: 700px) {
       .top-header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-      }
-      .main-nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 0.6rem;
-        margin-top: 1rem;
-      }
-      .main-nav.open {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgb(15, 14, 14);
+        padding: 0.7rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
       }
+
+      .site-title h1 {
+        font-family: "Space Mono", monospace;
+        color: white;
+        margin: 0;
+        line-height: 1;
+        font-size: 1.5rem;
+      }
+
+      .main-nav {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .main-nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+        font-size: 1.1rem;
+      }
+
+      .main-nav a:hover {
+        color: black;
+        background-color: rgb(250, 171, 171);
+      }
+
       .nav-toggle {
-        display: block;
-        position: absolute;
-        right: 2rem;
-        top: 1.3rem;
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
       }
-    }
 
-    .container {
-      max-width: 900px;
-      margin: 1rem auto;
-      padding: 0 1rem;
-    }
+      @media (max-width: 700px) {
+        .top-header {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 1rem;
+        }
+        .main-nav {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          gap: 0.6rem;
+          margin-top: 1rem;
+        }
+        .main-nav.open {
+          display: flex;
+        }
+        .nav-toggle {
+          display: block;
+          position: absolute;
+          right: 2rem;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
 
-    section {
-      margin-bottom: 3rem;
-    }
-
-    h2 {
-      color: white;
-      margin-bottom: 0.5rem;
-      font-family: "Space Mono", monospace;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      border-radius: 8px;
-      background: white;
-      padding: 1.3rem;
-      transition: transform 0.3s ease;
-    }
-.project-card:hover {
-  transform: scale(1.05);
-}
-    .project-card p {
-      color: black;
-    }
-    .modal-content a {
-      color: black;
-    }
-    .modal-content a:hover {
-      color: rgb(250, 171, 171);
-      background-color: black;
-    }
-
-    .project-card h3 {
-      margin-top: 0;
-      color: black;
-    }
-
-   a {
-    color: white;
-    font-weight: bold;
-    text-decoration: underline;
-    transition: all 0.3s ease;
-    padding: 0.2rem 0.4rem;
-}
-
-a:hover {
-  color: black;
-  background-color: rgb(250, 171, 171);
-}
-
-
-    .contact-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .contact-list li {
-      margin-bottom: 0.4rem;
-    }
-
-    @media (max-width: 600px) {
       .container {
-        padding: 0 0.5rem;
+        max-width: 900px;
+        margin: 1rem auto;
+        padding: 0 1rem;
       }
-    }
 
-    .project-thumb {
-  width: 100%;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-.project-thumb:hover {
-  transform: scale(1.03);
-}
+      section {
+        margin-bottom: 5rem;
+      }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 99;
-  padding-top: 60px;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.9);
-}
+      h2 {
+        color: white;
+        margin-bottom: 0.5rem;
+        font-family: "Space Mono", monospace;
+      }
+      .skills-list {
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        color: rgb(250, 171, 171);
+      }
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 1.5rem;
+      }
 
-.modal-content {
-  background-color: white;
-  margin: auto;
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 600px;
-  color: rgb(0, 0, 0);
-  position: relative;
-}
+      .project-card {
+        border-radius: 8px;
+        background: white;
+        padding: 1.3rem;
+        transition: transform 0.3s ease;
+      }
+      .project-card:hover {
+        transform: scale(1.05);
+      }
+      .project-card p {
+        color: black;
+      }
+      .modal-content a {
+        color: black;
+      }
+      .modal-content a:hover {
+        color: rgb(250, 171, 171);
+        background-color: black;
+      }
 
-.close {
-  color: black;
-  position: absolute;
-  top: 10px; right: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-/* Animate modal fade-in */
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+      .project-card h3 {
+        margin-top: 0;
+        color: black;
+      }
 
-.modal-content {
-  animation: fadeInScale 0.3s ease-out;
-}
-@keyframes fadeOutScale {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-}
+      a {
+        color: white;
+        font-weight: bold;
+        text-decoration: underline;
+        transition: all 0.3s ease;
+        padding: 0.2rem 0.4rem;
+      }
 
-.modal-content.animate-out {
-  animation: fadeOutScale 0.2s ease-out;
-}
+      a:hover {
+        color: black;
+        background-color: rgb(250, 171, 171);
+      }
 
-  </style>
-</head>
+      .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
 
-<body>
-  <header class="top-header">
-    <div class="site-title">
-      <h1>MH</h1>
+      .contact-list li {
+        margin-bottom: 0.4rem;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 0 0.5rem;
+        }
+      }
+
+      .project-thumb {
+        width: 100%;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+      .project-thumb:hover {
+        transform: scale(1.03);
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 99;
+        padding-top: 60px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+
+      .modal-content {
+        background-color: white;
+        margin: auto;
+        padding: 2rem;
+        border-radius: 10px;
+        max-width: 600px;
+        color: rgb(0, 0, 0);
+        position: relative;
+      }
+
+      .close {
+        color: black;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      /* Animate modal fade-in */
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .modal-content {
+        animation: fadeInScale 0.3s ease-out;
+      }
+      @keyframes fadeOutScale {
+        from {
+          opacity: 1;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+      }
+
+      .modal-content.animate-out {
+        animation: fadeOutScale 0.2s ease-out;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="top-header">
+      <div class="site-title">
+        <h1>MH</h1>
+      </div>
+      <button
+        class="nav-toggle"
+        onclick="document.querySelector('.main-nav').classList.toggle('open')"
+        aria-label="Toggle navigation"
+      >
+        ☰
+      </button>
+      <nav class="main-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          Hi, I am Muna! I study Computer Science at
+          <strong>Eötvös Loránd University</strong> and love building fun
+          things, both on the computer and in real life. <br /><br />
+          Here are some of the <strong>technologies</strong> I have worked with:
+        </p>
+
+        <ul class="skills-list">
+          <li>Java</li>
+          <li>Python</li>
+          <li>C#</li>
+          <li>C</li>
+          <li>JavaScript</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>Haskell</li>
+        </ul>
+
+        <p>
+          In my free time, I enjoy building DIY miniature houses, playing video
+          games and keeping up with the developments of science!
+        </p>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+          <img
+            src="images/tictactoe.png"
+            alt="Tic Tac Toe"
+            class="project-thumb"
+            onclick="openModal(0)"
+          />
+
+          <img
+            src="images/placeholder.png"
+            alt="Project Two"
+            class="project-thumb"
+            onclick="openModal(1)"
+          />
+        </div>
+      </section>
+
+      <div id="projectModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <div id="modalDetails"></div>
+        </div>
+      </div>
+
+      <section id="contact">
+        <h2>Let's connect!</h2>
+        <ul class="contact-list">
+          <li>
+            Email: <a href="mailto:munahssnn@gmail.com">munahssnn@gmail.com</a>
+          </li>
+          <li>
+            GitHub:
+            <a href="https://github.com/munahssn" target="_blank">munahssn</a>
+          </li>
+          <li>
+            LinkedIn:
+            <a
+              href="https://linkedin.com/in/muna-hassan-93ab26355/"
+              target="_blank"
+              >Muna Hassan</a
+            >
+          </li>
+        </ul>
+      </section>
     </div>
-    <button class="nav-toggle" onclick="document.querySelector('.main-nav').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
-    <nav class="main-nav">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <div class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        Hi, I am Muna! I study computer science at ELTE and love building fun things, both on the computer and in real life.
-        I enjoy solving puzzles with code and building DIY miniature houses! I also have a love for astronomy.
-        <br><br>
-        <strong>Skills:</strong> Java, Python, C#, C, JavaScript, HTML, CSS, Haskell.
-      </p>
-    </section>
-
-    <section id="projects">
-  <h2>Projects</h2>
-  <div class="projects">
-    <!-- Project Thumbnail 1 -->
-    <img src="images/tictactoe.png" alt="Tic Tac Toe" class="project-thumb" onclick="openModal(0)" />
-
-    <!-- Project Thumbnail 2 -->
-    <img src="images/placeholder.png" alt="Project Two" class="project-thumb" onclick="openModal(1)" />
-  </div>
-</section>
-
-<!-- Modal -->
-<div id="projectModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <div id="modalDetails"></div>
-  </div>
-</div>
-
-
-    <section id="contact">
-      <h2>Let's connect!</h2>
-      <ul class="contact-list">
-        <li>Email: <a href="mailto:munahssnn@gmail.com">munahssnn@gmail.com</a></li>
-        <li>GitHub: <a href="https://github.com/munahssn" target="_blank">munahssn</a></li>
-        <li>LinkedIn: <a href="https://linkedin.com/in/muna-hassan-93ab26355/" target="_blank">Muna Hassan</a></li>
-      </ul>
-    </section>
-  </div>
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
